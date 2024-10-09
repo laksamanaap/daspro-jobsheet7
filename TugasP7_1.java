@@ -6,7 +6,7 @@ public class TugasP7_1 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int totalTiket = 0, hargaTiket = 50000;
-        double totalPendapatan = 0;
+        double totalPendapatan = 0, hargaTotal, diskon = 0, hargaSetelahDiskon;
         char lanjut;
 
         do {
@@ -17,12 +17,12 @@ public class TugasP7_1 {
                 jumlahTiket = sc.nextInt();
 
                 if (jumlahTiket < 0) {
-                    System.out.println("Jumlah tiket tidak valid. Silakan sc ulang.");
+                    System.out.println("Jumlah tiket tidak valid. Silakan input ulang.");
                 }
             } while (jumlahTiket < 0);
 
-            double hargaTotal = jumlahTiket * hargaTiket;
-            double diskon = 0;
+            hargaTotal = jumlahTiket * hargaTiket;
+            diskon = 0;
 
             if (jumlahTiket > 10) {
                 diskon = 0.15; // 15%
@@ -30,7 +30,7 @@ public class TugasP7_1 {
                 diskon = 0.10; // 10%
             }
 
-            double hargaSetelahDiskon = hargaTotal * (1 - diskon);
+            hargaSetelahDiskon = hargaTotal * (1 - diskon);
 
             System.out.println("Detail Pembelian:");
             System.out.println("Jumlah tiket: " + jumlahTiket);
@@ -44,7 +44,7 @@ public class TugasP7_1 {
             totalTiket += jumlahTiket;
             totalPendapatan += hargaSetelahDiskon;
 
-            System.out.print("\nAda pembelian lain? (y/n): ");
+            System.out.print("Ada pembelian lain? (y/n): ");
             lanjut = sc.next().charAt(0);
 
         } while (lanjut == 'y' || lanjut == 'Y');
